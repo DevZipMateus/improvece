@@ -46,7 +46,7 @@ const AboutSection = () => {
               
               <div className="flex flex-col items-center sm:items-start">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300" alt="Juliano Silva" className="w-full h-full object-cover" />
+                  <img alt="Juliano Silva" className="w-full h-full object-cover" src="/lovable-uploads/e32e150b-745f-48b0-915d-4ee9884b6217.png" />
                 </div>
                 <h4 className="text-xl font-semibold">Juliano Silva</h4>
                 <p className="text-improve text-sm mb-2">Co-fundador</p>
