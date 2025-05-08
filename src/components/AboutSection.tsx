@@ -1,10 +1,7 @@
-
 import { CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-
 const AboutSection = () => {
-  return (
-    <section id="quem-somos" className="py-24 bg-white">
+  return <section id="quem-somos" className="py-24 bg-white">
       <div className="section-container">
         <AnimatedSection>
           <h2 className="section-title">Quem Somos</h2>
@@ -15,11 +12,7 @@ const AboutSection = () => {
             <div className="relative">
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-improve/10 rounded-full z-0"></div>
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1000" 
-                  alt="Equipe Improve" 
-                  className="w-full h-auto"
-                />
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1000" alt="Equipe Improve" className="w-full h-auto" />
               </div>
             </div>
           </AnimatedSection>
@@ -42,11 +35,7 @@ const AboutSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="flex flex-col items-center sm:items-start">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300" 
-                    alt="Diego Fiuza" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img alt="Diego Fiuza" className="w-full h-full object-cover" src="/lovable-uploads/7ad60b21-ed30-4f34-a9eb-028d5ea19ff3.png" />
                 </div>
                 <h4 className="text-xl font-semibold">Diego Fiuza</h4>
                 <p className="text-improve text-sm mb-2">Co-fundador</p>
@@ -57,11 +46,7 @@ const AboutSection = () => {
               
               <div className="flex flex-col items-center sm:items-start">
                 <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
-                  <img 
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300" 
-                    alt="Juliano Silva" 
-                    className="w-full h-full object-cover"
-                  />
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300" alt="Juliano Silva" className="w-full h-full object-cover" />
                 </div>
                 <h4 className="text-xl font-semibold">Juliano Silva</h4>
                 <p className="text-improve text-sm mb-2">Co-fundador</p>
@@ -73,8 +58,6 @@ const AboutSection = () => {
           </AnimatedSection>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
