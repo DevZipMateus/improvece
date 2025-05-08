@@ -1,0 +1,84 @@
+
+import { ClipboardList, BarChart2, Zap, LineChart, TrendingUp } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+
+const MethodologySection = () => {
+  const steps = [
+    {
+      number: 1,
+      icon: ClipboardList,
+      title: "Diagnóstico personalizado",
+      description: "Análise detalhada da situação financeira atual da sua empresa para identificar pontos de melhoria."
+    },
+    {
+      number: 2,
+      icon: BarChart2,
+      title: "Estruturação do financeiro",
+      description: "Organização e implementação de processos financeiros claros e eficientes."
+    },
+    {
+      number: 3,
+      icon: Zap,
+      title: "Implantação + bonificação",
+      description: "Implementação das soluções com treinamento da equipe e sistemas de bonificação por resultados."
+    },
+    {
+      number: 4,
+      icon: LineChart,
+      title: "Acompanhamento com dados diários",
+      description: "Monitoramento constante dos indicadores financeiros para ajustes em tempo real."
+    },
+    {
+      number: 5,
+      icon: TrendingUp,
+      title: "Decisões assertivas com foco no lucro",
+      description: "Apoio estratégico contínuo para maximizar resultados e garantir o crescimento sustentável."
+    }
+  ];
+
+  return (
+    <section id="metodologia" className="py-24 bg-improve/5">
+      <div className="section-container">
+        <AnimatedSection>
+          <h2 className="section-title">O Caminho do Lucro</h2>
+          <p className="section-subtitle">
+            Nossa metodologia foi desenvolvida para transformar caos em clareza financeira
+          </p>
+        </AnimatedSection>
+
+        <div className="relative mt-20">
+          {/* Linha conectora (para desktop) */}
+          <div className="absolute top-24 left-0 right-0 h-1 bg-improve/30 hidden lg:block"></div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+            {steps.map((step, index) => {
+              const IconComponent = step.icon;
+              
+              return (
+                <AnimatedSection 
+                  key={step.title} 
+                  animation="fade-in-up" 
+                  delay={index * 150}
+                  className="relative"
+                >
+                  <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 h-full flex flex-col">
+                    <div className="w-14 h-14 rounded-full bg-improve text-improve-black font-bold text-xl flex items-center justify-center mb-6 lg:mx-auto">
+                      {step.number}
+                    </div>
+                    <div className="lg:text-center">
+                      <IconComponent className="h-8 w-8 text-improve mb-4 lg:mx-auto" />
+                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                      <p className="text-gray-600">{step.description}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default MethodologySection;

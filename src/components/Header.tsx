@@ -1,22 +1,10 @@
 
 import { useState, useEffect } from 'react';
-import { cn } from "@/lib/utils";
-import { useIsMobile } from '@/hooks/use-mobile';
-import Logo from './header/Logo';
-import DesktopNavigation from './header/DesktopNavigation';
-import MobileMenuButton from './header/MobileMenuButton';
-import MobileMenuOverlay from './header/MobileMenuOverlay';
-import MobileMenuPanel from './header/MobileMenuPanel';
-import { MenuItem } from './header/types';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isMobile = useIsMobile();
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,69 +17,150 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     
-    // Close menu when resizing from mobile to desktop
-    const handleResize = () => {
-      if (window.innerWidth >= 768 && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleResize);
     };
-  }, [isMenuOpen]);
+  }, []);
 
-  // Prevent body scrolling when mobile menu is open
-  useEffect(() => {
-    if (isMobile) {
-      if (isMenuOpen) {
-        document.body.style.overflow = 'hidden';
-      } else {
-        document.body.style.overflow = '';
-      }
-      
-      return () => {
-        document.body.style.overflow = '';
-      };
-    }
-  }, [isMenuOpen, isMobile]);
-
-  const menuItems: MenuItem[] = [
-    { name: 'Início', href: '#início' },
-    { name: 'Sobre Nós', href: '#sobre-nós' },
-    { name: 'Serviços', href: '#serviços' },
-    { name: 'Planos', href: '#planos' },
-    { name: 'Contato', href: '#contato' }
-  ];
+  // Fechar menu ao clicar em links de navegação
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header 
-      className={cn(
-        'fixed w-full z-50 transition-all duration-300 ease-in-out',
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' 
-          : 'bg-transparent py-4'
-      )}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow py-2' : 'py-4 bg-transparent'
+      }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Logo scrolled={scrolled} />
-        <DesktopNavigation menuItems={menuItems} scrolled={scrolled} />
-        <MobileMenuButton 
-          isMenuOpen={isMenuOpen} 
-          toggleMenu={toggleMenu} 
-          scrolled={scrolled} 
-        />
+        {/* Logo */}
+        <a href="#home" className="z-10 relative">
+          <img 
+            src="/lovable-uploads/c739e515-dccc-4a07-98f5-852b9262e5eb.png" 
+            alt="Improve - BPO Financeiro" 
+            className="h-12 md:h-10"
+          />
+        </a>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <a 
+            href="#quem-somos" 
+            className={`text-sm font-medium transition-colors hover:text-improve ${
+              scrolled ? 'text-gray-800' : 'text-gray-800'
+            }`}
+          >
+            Quem Somos
+          </a>
+          <a 
+            href="#problemas" 
+            className={`text-sm font-medium transition-colors hover:text-improve ${
+              scrolled ? 'text-gray-800' : 'text-gray-800'
+            }`}
+          >
+            Problemas
+          </a>
+          <a 
+            href="#solucoes" 
+            className={`text-sm font-medium transition-colors hover:text-improve ${
+              scrolled ? 'text-gray-800' : 'text-gray-800'
+            }`}
+          >
+            Soluções
+          </a>
+          <a 
+            href="#metodologia" 
+            className={`text-sm font-medium transition-colors hover:text-improve ${
+              scrolled ? 'text-gray-800' : 'text-gray-800'
+            }`}
+          >
+            Metodologia
+          </a>
+          <a 
+            href="#servicos" 
+            className={`text-sm font-medium transition-colors hover:text-improve ${
+              scrolled ? 'text-gray-800' : 'text-gray-800'
+            }`}
+          >
+            Serviços
+          </a>
+          <a 
+            href="#contato" 
+            className="btn-primary text-sm"
+          >
+            Fale Conosco
+          </a>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={`md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset ${
+            isMenuOpen ? 'focus:ring-white' : 'focus:ring-gray-300'
+          }`}
+          aria-expanded="false"
+        >
+          <span className="sr-only">Abrir menu</span>
+          {isMenuOpen ? (
+            <X className="h-6 w-6 text-gray-900" aria-hidden="true" />
+          ) : (
+            <Menu className="h-6 w-6 text-gray-900" aria-hidden="true" />
+          )}
+        </button>
       </div>
 
-      <MobileMenuOverlay isMenuOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <MobileMenuPanel 
-        isMenuOpen={isMenuOpen} 
-        onClose={() => setIsMenuOpen(false)} 
-        menuItems={menuItems}
-      />
+      {/* Mobile Navigation */}
+      <div 
+        className={`md:hidden absolute top-full left-0 right-0 bg-white transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-y-0 shadow-lg' : '-translate-y-full'
+        }`}
+      >
+        <div className="px-4 pt-2 pb-4 space-y-1 sm:px-3">
+          <a 
+            href="#quem-somos" 
+            onClick={handleNavClick}
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-improve"
+          >
+            Quem Somos
+          </a>
+          <a 
+            href="#problemas" 
+            onClick={handleNavClick}
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-improve"
+          >
+            Problemas
+          </a>
+          <a 
+            href="#solucoes" 
+            onClick={handleNavClick}
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-improve"
+          >
+            Soluções
+          </a>
+          <a 
+            href="#metodologia" 
+            onClick={handleNavClick}
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-improve"
+          >
+            Metodologia
+          </a>
+          <a 
+            href="#servicos" 
+            onClick={handleNavClick}
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-improve"
+          >
+            Serviços
+          </a>
+          <a 
+            href="#contato" 
+            onClick={handleNavClick}
+            className="block px-3 py-2 rounded-md text-base font-medium bg-improve text-improve-black hover:bg-improve/90 text-center mt-4"
+          >
+            Fale Conosco
+          </a>
+        </div>
+      </div>
     </header>
   );
 };
