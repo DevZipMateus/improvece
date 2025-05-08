@@ -1,6 +1,7 @@
 
 import { ClipboardList, BarChart2, Zap, LineChart, TrendingUp } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { Card } from './ui/card';
 
 const MethodologySection = () => {
   const steps = [
@@ -19,14 +20,14 @@ const MethodologySection = () => {
     {
       number: 3,
       icon: Zap,
-      title: "Implantação + bonificação",
-      description: "Implementação das soluções com treinamento da equipe e sistemas de bonificação por resultados."
+      title: "Acompanhamento próximo + dados atualizados diariamente",
+      description: "Monitoramento constante dos indicadores financeiros para ajustes em tempo real."
     },
     {
       number: 4,
       icon: LineChart,
-      title: "Acompanhamento com dados diários",
-      description: "Monitoramento constante dos indicadores financeiros para ajustes em tempo real."
+      title: "Implantação com bonificação e treinamento do seu time",
+      description: "Implementação das soluções com treinamento da equipe e sistemas de bonificação por resultados."
     },
     {
       number: 5,
@@ -46,6 +47,15 @@ const MethodologySection = () => {
           </p>
         </AnimatedSection>
 
+        <div className="mt-16 md:flex items-center justify-center hidden">
+          <img 
+            src="/lovable-uploads/f580ce72-2585-41f8-8128-3c8e9a3b4a91.png"
+            alt="O caminho do Lucro - Metodologia Improve em 5 passos"
+            className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
+          />
+        </div>
+
+        {/* Versão em cards para dispositivos móveis ou como complemento */}
         <div className="relative mt-20">
           {/* Linha conectora (para desktop) */}
           <div className="absolute top-24 left-0 right-0 h-1 bg-improve/30 hidden lg:block"></div>
@@ -61,16 +71,24 @@ const MethodologySection = () => {
                   delay={index * 150}
                   className="relative"
                 >
-                  <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 h-full flex flex-col">
-                    <div className="w-14 h-14 rounded-full bg-improve text-improve-black font-bold text-xl flex items-center justify-center mb-6 lg:mx-auto">
-                      {step.number}
+                  <Card className="h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                    <div className="p-6 flex flex-col h-full">
+                      <div className={`w-14 h-14 rounded-full text-improve-black font-bold text-xl flex items-center justify-center mb-6 lg:mx-auto ${
+                        index < 3 ? 'bg-improve' : 
+                        index === 3 ? 'bg-gray-500' : 'bg-improve-black text-white'
+                      }`}>
+                        {step.number}
+                      </div>
+                      <div className="lg:text-center">
+                        <IconComponent className={`h-8 w-8 mb-4 lg:mx-auto ${
+                          index < 3 ? 'text-improve' : 
+                          index === 3 ? 'text-gray-500' : 'text-improve-black'
+                        }`} />
+                        <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                        <p className="text-gray-600">{step.description}</p>
+                      </div>
                     </div>
-                    <div className="lg:text-center">
-                      <IconComponent className="h-8 w-8 text-improve mb-4 lg:mx-auto" />
-                      <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                      <p className="text-gray-600">{step.description}</p>
-                    </div>
-                  </div>
+                  </Card>
                 </AnimatedSection>
               );
             })}
