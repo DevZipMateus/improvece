@@ -9,6 +9,7 @@ import MethodologySection from '@/components/MethodologySection';
 import ServicesSection from '@/components/ServicesSection';
 import ResultsSection from '@/components/ResultsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import EgestorERP from '@/components/EgestorERP';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 
@@ -83,6 +84,7 @@ const Index = () => {
         <ServicesSection />
         <ResultsSection />
         <TestimonialsSection />
+        <EgestorERP />
         <CTASection />
       </main>
       <Footer />
