@@ -1,44 +1,34 @@
-
 import { ClipboardList, BarChart2, Zap, LineChart, TrendingUp } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { Card } from './ui/card';
-
 const MethodologySection = () => {
-  const steps = [
-    {
-      number: 1,
-      icon: ClipboardList,
-      title: "Diagnóstico personalizado",
-      description: "Análise detalhada da situação financeira atual da sua empresa para identificar pontos de melhoria."
-    },
-    {
-      number: 2,
-      icon: BarChart2,
-      title: "Estruturação do financeiro",
-      description: "Organização e implementação de processos financeiros claros e eficientes."
-    },
-    {
-      number: 3,
-      icon: Zap,
-      title: "Acompanhamento próximo + dados atualizados diariamente",
-      description: "Monitoramento constante dos indicadores financeiros para ajustes em tempo real."
-    },
-    {
-      number: 4,
-      icon: LineChart,
-      title: "Implantação com bonificação e treinamento do seu time",
-      description: "Implementação das soluções com treinamento da equipe e sistemas de bonificação por resultados."
-    },
-    {
-      number: 5,
-      icon: TrendingUp,
-      title: "Decisões assertivas com foco no lucro",
-      description: "Apoio estratégico contínuo para maximizar resultados e garantir o crescimento sustentável."
-    }
-  ];
-
-  return (
-    <section id="metodologia" className="py-24 bg-improve/5">
+  const steps = [{
+    number: 1,
+    icon: ClipboardList,
+    title: "Diagnóstico personalizado",
+    description: "Análise detalhada da situação financeira atual da sua empresa para identificar pontos de melhoria."
+  }, {
+    number: 2,
+    icon: BarChart2,
+    title: "Estruturação do financeiro",
+    description: "Organização e implementação de processos financeiros claros e eficientes."
+  }, {
+    number: 3,
+    icon: Zap,
+    title: "Acompanhamento próximo + dados atualizados diariamente",
+    description: "Monitoramento constante dos indicadores financeiros para ajustes em tempo real."
+  }, {
+    number: 4,
+    icon: LineChart,
+    title: "Implantação com bonificação e treinamento do seu time",
+    description: "Implementação das soluções com treinamento da equipe e sistemas de bonificação por resultados."
+  }, {
+    number: 5,
+    icon: TrendingUp,
+    title: "Decisões assertivas com foco no lucro",
+    description: "Apoio estratégico contínuo para maximizar resultados e garantir o crescimento sustentável."
+  }];
+  return <section id="metodologia" className="py-24 bg-improve/5">
       <div className="section-container">
         <AnimatedSection>
           <h2 className="section-title">O Caminho do Lucro</h2>
@@ -48,11 +38,7 @@ const MethodologySection = () => {
         </AnimatedSection>
 
         <div className="mt-16 md:flex items-center justify-center hidden">
-          <img 
-            src="/lovable-uploads/f580ce72-2585-41f8-8128-3c8e9a3b4a91.png"
-            alt="O caminho do Lucro - Metodologia Improve em 5 passos"
-            className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
-          />
+          
         </div>
 
         {/* Versão em cards para dispositivos móveis ou como complemento */}
@@ -62,41 +48,25 @@ const MethodologySection = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             {steps.map((step, index) => {
-              const IconComponent = step.icon;
-              
-              return (
-                <AnimatedSection 
-                  key={step.title} 
-                  animation="fade-in-up" 
-                  delay={index * 150}
-                  className="relative"
-                >
+            const IconComponent = step.icon;
+            return <AnimatedSection key={step.title} animation="fade-in-up" delay={index * 150} className="relative">
                   <Card className="h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
                     <div className="p-6 flex flex-col h-full">
-                      <div className={`w-14 h-14 rounded-full text-improve-black font-bold text-xl flex items-center justify-center mb-6 lg:mx-auto ${
-                        index < 3 ? 'bg-improve' : 
-                        index === 3 ? 'bg-gray-500' : 'bg-improve-black text-white'
-                      }`}>
+                      <div className={`w-14 h-14 rounded-full text-improve-black font-bold text-xl flex items-center justify-center mb-6 lg:mx-auto ${index < 3 ? 'bg-improve' : index === 3 ? 'bg-gray-500' : 'bg-improve-black text-white'}`}>
                         {step.number}
                       </div>
                       <div className="lg:text-center">
-                        <IconComponent className={`h-8 w-8 mb-4 lg:mx-auto ${
-                          index < 3 ? 'text-improve' : 
-                          index === 3 ? 'text-gray-500' : 'text-improve-black'
-                        }`} />
+                        <IconComponent className={`h-8 w-8 mb-4 lg:mx-auto ${index < 3 ? 'text-improve' : index === 3 ? 'text-gray-500' : 'text-improve-black'}`} />
                         <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                         <p className="text-gray-600">{step.description}</p>
                       </div>
                     </div>
                   </Card>
-                </AnimatedSection>
-              );
-            })}
+                </AnimatedSection>;
+          })}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default MethodologySection;
