@@ -1,19 +1,11 @@
-
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
-
 const Footer = () => {
   const year = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-improve-black text-white pt-16 pb-8">
+  return <footer className="bg-improve-black text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <img 
-              src="/lovable-uploads/c739e515-dccc-4a07-98f5-852b9262e5eb.png" 
-              alt="Improve - BPO Financeiro" 
-              className="h-12 mb-6"
-            />
+            <img alt="Improve - BPO Financeiro" className="h-12 mb-6" src="/lovable-uploads/9fd79017-c9f2-4bd4-9f8e-2bc6e043bbf2.png" />
             <p className="text-gray-300 mb-6 max-w-xs">
               A Improve não entrega relatórios.
               Entregamos clareza, lucro e decisão com segurança.
@@ -73,8 +65,6 @@ const Footer = () => {
           <p className="mt-2">Responsável: Diego Fiuza</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
