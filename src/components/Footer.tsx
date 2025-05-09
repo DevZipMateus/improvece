@@ -15,17 +15,13 @@ const Footer = () => {
               className="h-12 mb-6"
             />
             <p className="text-gray-300 mb-6 max-w-xs">
-              Soluções financeiras com foco em clareza e resultados para pequenas e médias empresas.
+              A Improve não entrega relatórios.
+              Entregamos clareza, lucro e decisão com segurança.
+              Menos caos. Mais resultados.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-improve transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-improve transition-colors">
+              <a href="https://www.instagram.com/improve.ce/" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-improve transition-colors" target="_blank" rel="noopener noreferrer">
                 <Instagram size={20} />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-improve transition-colors">
-                <Linkedin size={20} />
               </a>
             </div>
           </div>
@@ -45,11 +41,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Serviços</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-improve transition-colors">Contabilidade Financeira</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-improve transition-colors">Contabilidade Fiscal</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-improve transition-colors">Contabilidade Trabalhista</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-improve transition-colors">Planejamento Tributário</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-improve transition-colors">Abertura/Encerramento de Empresas</a></li>
+              <li><a href="#servicos" className="text-gray-300 hover:text-improve transition-colors">Contabilidade Financeira</a></li>
+              <li><a href="#servicos" className="text-gray-300 hover:text-improve transition-colors">Contabilidade Fiscal</a></li>
+              <li><a href="#servicos" className="text-gray-300 hover:text-improve transition-colors">Contabilidade Trabalhista</a></li>
+              <li><a href="#servicos" className="text-gray-300 hover:text-improve transition-colors">Planejamento Tributário</a></li>
+              <li><a href="#servicos" className="text-gray-300 hover:text-improve transition-colors">Abertura/Encerramento de Empresas</a></li>
             </ul>
           </div>
           
@@ -58,22 +54,23 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone className="h-5 w-5 text-improve mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">+55 (XX) XXXXX-XXXX</span>
+                <a href="tel:+5551997652696" className="text-gray-300 hover:text-improve transition-colors">(51) 99765-2696</a>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 text-improve mr-3 flex-shrink-0 mt-0.5" />
-                <a href="mailto:contato@improve.com.br" className="text-gray-300 hover:text-improve transition-colors">contato@improve.com.br</a>
+                <a href="mailto:improve.financeiro@gmail.com" className="text-gray-300 hover:text-improve transition-colors">improve.financeiro@gmail.com</a>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 text-improve mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">São Paulo - SP, Brasil</span>
+                <span className="text-gray-300">R VENANCIO AIRES, N 1434, CENTRO, SANTA MARIA - RS</span>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
-          <p>&copy; {year} Improve - BPO Financeiro. Todos os direitos reservados.</p>
+          <p>&copy; {year} Improve Contabilidade e BPO Financeiro. Todos os direitos reservados.</p>
+          <p className="mt-2">Responsável: Diego Fiuza</p>
         </div>
       </div>
     </footer>

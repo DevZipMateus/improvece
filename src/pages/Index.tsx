@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
@@ -9,7 +10,6 @@ import ServicesSection from '@/components/ServicesSection';
 import ResultsSection from '@/components/ResultsSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import EgestorERP from '@/components/EgestorERP';
-import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -36,21 +36,19 @@ const Index = () => {
     const schema = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      'name': 'Improve - BPO Financeiro',
-      'description': 'Serviços de BPO Financeiro com foco em lucro, clareza e tranquilidade para pequenas e médias empresas.',
+      'name': 'Improve Contabilidade e BPO Financeiro',
+      'description': 'A Improve não entrega relatórios. Entregamos clareza, lucro e decisão com segurança. Menos caos. Mais resultados.',
       'url': 'https://www.improve.com.br',
       'logo': 'https://www.improve.com.br/logo.png',
       'contactPoint': {
         '@type': 'ContactPoint',
-        'telephone': '+55-XX-XXXXX-XXXX',
+        'telephone': '+55-51-99765-2696',
         'contactType': 'customer service',
         'areaServed': 'BR',
         'availableLanguage': 'Portuguese'
       },
       'sameAs': [
-        'https://www.facebook.com/improve',
-        'https://www.instagram.com/improve',
-        'https://www.linkedin.com/company/improve'
+        'https://www.instagram.com/improve.ce/'
       ]
     };
 
@@ -84,7 +82,6 @@ const Index = () => {
         <ResultsSection />
         <TestimonialsSection />
         <EgestorERP />
-        <ContactSection />
       </main>
       <Footer />
     </div>

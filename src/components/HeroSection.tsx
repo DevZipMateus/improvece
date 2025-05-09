@@ -6,7 +6,7 @@ const HeroSection = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center bg-gradient-to-r from-gray-50 to-white overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center bg-gradient-to-r from-gray-800 to-gray-900 overflow-hidden pt-20"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -24,21 +24,21 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection animation="fade-in-up" className="text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
               BPO Financeiro com foco no que realmente importa: <span className="text-improve">lucro, clareza e tranquilidade</span>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               Você cuida do seu negócio. A gente cuida do que tira seu sono.
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <a href="#contato" className="btn-primary flex items-center gap-2">
-                Fale com um especialista
+              <a href="#quem-somos" className="btn-primary flex items-center gap-2">
+                Conheça a Improve
                 <ChevronRight className="h-5 w-5" />
               </a>
-              <a href="#diagnostico" className="btn-dark flex items-center gap-2">
-                Solicite um diagnóstico gratuito
+              <a href="#servicos" className="btn-dark flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white">
+                Nossos serviços
                 <ChevronRight className="h-5 w-5" />
               </a>
             </div>
